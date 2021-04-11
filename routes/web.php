@@ -66,3 +66,5 @@ Route::get('/send', 'mailController@send');*/
 
 Route::get('multiuploads', 'App\Http\Controllers\UploadFileController@uploadForm');
 Route::post('multiuploads', 'App\Http\Controllers\UploadFileController@uploadSubmit');
+
+Route::get('mail/send', 'App\Http\Controllers\MailController@send');
