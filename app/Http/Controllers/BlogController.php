@@ -17,7 +17,7 @@ class BlogController extends Controller
     public function store(Request $request){
     	Post::create([
     		'title' => $request->title,
-    		'body' => $request->body
+    		'body' => $request->body		
     	]);
     	return back();
     }

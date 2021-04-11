@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Post;  
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UploadFileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,12 +44,8 @@ Route::get('post/add', function(){
         'body' => 'My body'
     ]);
 });
-/*Route::get('/post', function (){
-	$post = Post::find(1);
-	return $post;
-});*/
 
-Route::get('blog/', [BlogController::class, 'index']);
+Route::get('blog/index', [BlogController::class, 'index']);
 
 Route::get('blog/create', function (){
 	return view('blog.create');
@@ -55,6 +53,16 @@ Route::get('blog/create', function (){
 
 Route::post('blog/create', [BlogController::class, 'store'])->name('add-post');
 
-
-
 Route::get('post/{id}', [BlogController::class, 'get_post']);
+
+/*lab 8(sending to email)*/
+/*Route::get('uploadfile', function(){
+    return view('upload');
+});*/
+/*Route::get('uploadfile', 'UploadFileController@index');
+Route::post('uploadfile', 'UploadFileController@showUploadFIle');
+
+Route::get('/send', 'mailController@send');*/
+
+Route::get('multiuploads', 'App\Http\Controllers\UploadFileController@uploadForm');
+Route::post('multiuploads', 'App\Http\Controllers\UploadFileController@uploadSubmit');
